@@ -12,7 +12,7 @@ public class Connector {
     private static final String urlTemplate = "https://horoskopy.gazeta.pl/horoskop/placeholder/dzienny";
     public static final String NOT_FOUND = "NOT FOUND";
 
-    public static String getPage(String zodiacSign)  {
+    public static String getPage(String zodiacSign) {
 
 
         String newUrl = urlTemplate.replace("placeholder", zodiacSign);
@@ -26,12 +26,5 @@ public class Connector {
         return newUrl;
     }
 
-   static public void getHoroscopeText(String pageAsText) {
-
-       Pattern pattern = Pattern.compile("Your horoscope.+");
-       Matcher matcher = pattern.matcher(pageAsText);
-       if (matcher.find()) {
-           String result = matcher.group();
-       }return;
-   }
 }
+
