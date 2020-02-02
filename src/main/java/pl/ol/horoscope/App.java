@@ -17,4 +17,7 @@ public class App {
         System.out.println(horoscopeMessage);
 
     }
-}
+    private static void testHoroscopeExtractor(){
+        String horoscopeText = HoroscopeText.getHoroscopeText("TRALALALA LALA!");
+        System.out.println(horoscopeText);
+}}

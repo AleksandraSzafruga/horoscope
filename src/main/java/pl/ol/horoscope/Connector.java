@@ -23,7 +23,7 @@ public class Connector {
             requestResult = NOT_FOUND;
             e.printStackTrace();
         }
-        return newUrl;
+        return requestResult;
     }
 
 }

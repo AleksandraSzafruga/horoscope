@@ -5,13 +5,22 @@ import java.util.regex.Pattern;
 
 public class HoroscopeText {
 
-    static public void getHoroscopeText(String pageAsText) {
+    private static final String PATTERN = "<p class=\"lead\">.+";
 
-        Pattern pattern = Pattern.compile("Your horoscope.+");
-        Matcher matcher = pattern.matcher(pageAsText);
-        if (matcher.find()) {
-            String result = matcher.group();
+    public static String getHoroscopeText(String pageAsText) {
+
+        Pattern horoscopePattern = Pattern.compile(PATTERN);
+        Matcher horoscopeMatcher = horoscopePattern.matcher(pageAsText);
+        String foundText = "";
+        if (horoscopeMatcher.find()) {
+            foundText = horoscopeMatcher.group();
         }
-        return;
+        return clearText(foundText);
+    }
+
+    private static String clearText(String rawText) {
+        return rawText.replace("<p class=\"lead\">", "")
+                .replace("</p>", "")
+                .replace(". ", ".\n");
     }
 }
